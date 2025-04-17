@@ -1,7 +1,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import OrderButton from "@/components/OrderButton";
 import {
   Card,
   CardContent,
@@ -55,29 +55,27 @@ const Bakery = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      <main className="flex-grow py-12 bg-[#FFF8DC]">
+      <main className="flex-grow py-12 bg-[#FFF8DC] dark:bg-[#221F26] transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-[#2C1810] text-center mb-12">Our Products</h1>
+          <h1 className="text-4xl font-bold text-[#2C1810] dark:text-[#FDE1D3] text-center mb-12">Our Products</h1>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <Card key={index} className="overflow-hidden">
+              <Card key={index} className="overflow-hidden bg-white dark:bg-[#2C1810] border-[#8B4513]/20 dark:border-[#F97316]/20 transition-colors">
                 <img 
                   src={product.image} 
                   alt={product.name}
                   className="w-full h-48 object-cover"
                 />
                 <CardHeader>
-                  <CardTitle>{product.name}</CardTitle>
-                  <CardDescription>{product.description}</CardDescription>
+                  <CardTitle className="text-[#2C1810] dark:text-[#FDE1D3]">{product.name}</CardTitle>
+                  <CardDescription className="dark:text-[#FEC6A1]">{product.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-2xl font-bold text-[#F97316]">${product.price.toFixed(2)}</p>
                 </CardContent>
                 <CardFooter>
-                  <Button className="w-full bg-[#8B4513] hover:bg-[#654321]">
-                    Order Now
-                  </Button>
+                  <OrderButton productName={product.name} />
                 </CardFooter>
               </Card>
             ))}
