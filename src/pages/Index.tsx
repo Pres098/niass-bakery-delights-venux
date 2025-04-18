@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -10,14 +9,14 @@ const Index = () => {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <div className="relative h-[600px] bg-[url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80')] bg-cover bg-center">
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div className="relative h-[400px] sm:h-[600px] bg-[url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80')] bg-cover bg-center">
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center p-4">
             <div className="text-center text-white">
-              <h1 className="text-5xl font-bold mb-4">Welcome to Niass Bakery</h1>
-              <p className="text-xl mb-8">Artisanal breads and pastries baked fresh daily</p>
+              <h1 className="text-3xl sm:text-5xl font-bold mb-4">Welcome to Niass Bakery</h1>
+              <p className="text-lg sm:text-xl mb-8">Artisanal breads and pastries baked fresh daily</p>
               <Link 
                 to="/bakery" 
-                className="bg-[#F97316] text-white px-8 py-3 rounded-full hover:bg-[#EA580C] transition-colors"
+                className="inline-block bg-[#F97316] text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-[#EA580C] transition-colors"
               >
                 View Our Products
               </Link>
@@ -26,10 +25,10 @@ const Index = () => {
         </div>
 
         {/* Featured Products */}
-        <section className="py-16 bg-[#FFF8DC]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center text-[#2C1810] mb-12">Featured Products</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section className="py-8 sm:py-16 bg-[#FFF8DC]">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#2C1810] mb-8 sm:mb-12">Featured Products</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
               {[
                 {
                   name: "Artisan Bread",
@@ -52,8 +51,8 @@ const Index = () => {
               ].map((product, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
                   <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-[#2C1810] mb-2">{product.name}</h3>
+                  <div className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#2C1810] mb-2">{product.name}</h3>
                     <p className="text-gray-600 mb-4">{product.description}</p>
                     <p className="text-[#F97316] font-bold">{product.price}</p>
                   </div>
@@ -64,10 +63,10 @@ const Index = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center text-[#2C1810] mb-12">Why Choose Us</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <section className="py-8 sm:py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#2C1810] mb-8 sm:mb-12">Why Choose Us</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-center">
               {[
                 {
                   title: "Fresh Daily",
@@ -82,8 +81,8 @@ const Index = () => {
                   description: "Our team of experienced bakers craft each product with care"
                 }
               ].map((feature, index) => (
-                <div key={index} className="p-6">
-                  <h3 className="text-xl font-bold text-[#8B4513] mb-4">{feature.title}</h3>
+                <div key={index} className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#8B4513] mb-4">{feature.title}</h3>
                   <p className="text-gray-600">{feature.description}</p>
                 </div>
               ))}
